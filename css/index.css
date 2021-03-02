@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.timetable {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.timetable-col {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    width: 13%;
+}
+.timetable-col > div:first-child {
+    font-weight: bold;
+}
+.timetable-col > div {
+    border: 1px solid #828383;
+    padding: 3%;
+    height: 20%;
+}
+.timetable-col > div:not(div:last-child) {
+    border-bottom: none;
+}
