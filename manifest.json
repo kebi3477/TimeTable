@@ -1,0 +1,18 @@
+{   
+    "version": "1.0",
+    "manifest_version": 2,
+    "name": "Polytech Time Table",
+    "description": "한국 폴리텍대학 제주캠퍼스 도우미",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": true
+    },
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "background"
+    ]
+}

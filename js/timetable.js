@@ -2,7 +2,7 @@ if(localStorage.getItem("timeTable") === null) {
     localStorage.setItem("timeTable", "[]");
 } else {
     const kjm1 = {
-        class : "정보시스템구축관리",
+        class : "정보시스템<br>구축관리",
         name : '김종민',
         color : '#e1bdd3'
     }
@@ -34,6 +34,36 @@ if(localStorage.getItem("timeTable") === null) {
             "eighth" : ""
         }, {
             "day" : "화요일",
+            "first" : kyy,
+            "second" : kyy,
+            "third" : kyy,
+            "forth" : "",
+            "fivth" : jys,
+            "sixth" : jys,
+            "seventh" : "",
+            "eighth" : ""
+        }, {
+            "day" : "수요일",
+            "first" : kyy,
+            "second" : kyy,
+            "third" : kyy,
+            "forth" : "",
+            "fivth" : jys,
+            "sixth" : jys,
+            "seventh" : "",
+            "eighth" : ""
+        }, {
+            "day" : "목요일",
+            "first" : kyy,
+            "second" : kyy,
+            "third" : kyy,
+            "forth" : "",
+            "fivth" : jys,
+            "sixth" : jys,
+            "seventh" : "",
+            "eighth" : ""
+        }, {
+            "day" : "금요일",
             "first" : kyy,
             "second" : kyy,
             "third" : kyy,
