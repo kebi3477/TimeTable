@@ -1,78 +1,51 @@
 if(localStorage.getItem("timeTable") === null) {
     localStorage.setItem("timeTable", "[]");
 } else {
-    const kjm1 = {
-        class : "정보시스템<br>구축관리",
-        name : '김종민',
-        color : '#e1bdd3'
-    }
-    const kkm = {
-        class : "디지털콘텐츠디자인",
-        name : '김경모',
-        color : '#e7aabc'
-    }
-    const kyy = {
-        class : "온라인광고컨텐츠제작",
-        name : '김은영',
-        color : '#e8df9e'
-    }
-    const jys = {
-        class : "소프트웨어 공학",
-        name : "진용석",
-        color : '#a1cdc3'
-    }
+    const kjm1 = makeClassJson("정보시스템구축관리","김종민","#ffe6e6");
+    const kkm = makeClassJson("디지털콘텐츠디자인","김경모","#fff3e2");
+    const kyy = makeClassJson("온라인광고컨텐츠제작","김은영","#ccf6c8");
+    const jys =  makeClassJson("소프트웨어 공학","진용석","#d2f6c5");
+    const kjm2 = makeClassJson("융합프로젝트실습1","김종민","#dbc6eb");
+    const hsy1 = makeClassJson("디자인과3D프린팅","허성율","#e4fbff");
+    const hsy2 = makeClassJson("디자인과3D프린팅실습","허성율","#fdffbc");
+    const hsy3 = makeClassJson("UI/UX디자인","허성율","#d2c6b2");
+
     const timeTable = [
         {
             "day" : "월요일",
-            "first" : "",
-            "second" : kjm1,
-            "third" : kjm1,
-            "forth" : "",
-            "fivth" : kkm,
-            "sixth" : kkm,
-            "seventh" : kkm,
-            "eighth" : ""
+            "classes" : [
+                "", kjm1, kjm1, "", kkm, kkm, kkm, ""
+            ]
         }, {
             "day" : "화요일",
-            "first" : kyy,
-            "second" : kyy,
-            "third" : kyy,
-            "forth" : "",
-            "fivth" : jys,
-            "sixth" : jys,
-            "seventh" : "",
-            "eighth" : ""
+            "classes" : [
+                kyy, kyy, kyy, "", jys, jys, "", ""
+            ]
         }, {
             "day" : "수요일",
-            "first" : kyy,
-            "second" : kyy,
-            "third" : kyy,
-            "forth" : "",
-            "fivth" : jys,
-            "sixth" : jys,
-            "seventh" : "",
-            "eighth" : ""
+            "classes" : [
+                kjm2, kjm2, kjm2, kjm2, "", "", "", ""
+            ]
         }, {
             "day" : "목요일",
-            "first" : kyy,
-            "second" : kyy,
-            "third" : kyy,
-            "forth" : "",
-            "fivth" : jys,
-            "sixth" : jys,
-            "seventh" : "",
-            "eighth" : ""
+            "classes" : [
+                hsy1, hsy1, hsy2, hsy2, hsy2, hsy3, hsy3, hsy3
+            ]
         }, {
             "day" : "금요일",
-            "first" : kyy,
-            "second" : kyy,
-            "third" : kyy,
-            "forth" : "",
-            "fivth" : jys,
-            "sixth" : jys,
-            "seventh" : "",
-            "eighth" : ""
+            "classes" : [
+                "", "", "", "", "", "", "", ""
+            ]
         }
     ]
     localStorage.setItem("timeTable", JSON.stringify(timeTable));
+}
+
+function makeClassJson(className, name, color) {
+    const json = {
+        class : className,
+        name : name,
+        color : color
+    }
+    return json;
 }
