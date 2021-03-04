@@ -27,6 +27,7 @@ body {
 /* 시간표 */
 .timetable-cover, .todo-cover {
     width: 33%;
+    margin-left: 5%;
 }
 .timetable-cover > h2, .todo-cover > h2 {
     text-align: center;
@@ -43,6 +44,9 @@ body {
     text-align: center;
     width: 20%;
     height: 80vh;
+}
+.timetable-col:first-child > div {
+    border-left: .1px solid #3333;
 }
 .timetable-col > div:first-child {
     font-weight: bold;
@@ -63,4 +67,50 @@ body {
 .timetable-col {
     color: #333;
     font-weight: bold;
+}
+/* Todos */
+.todo-cover {
+    margin-left: 4%;
+}
+.todo-input {
+    position: relative;
+}
+.todo-text {
+    width: 100%;
+    padding: 2%;
+    outline: none;
+    border: 2px solid #f2f2f2;
+    transition: .2s;
+}
+.todo-input > button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+.todo-list {
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden;
+    height: 70vh;
+}
+.todo-item {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2%;
+}
+.todo-item > input {
+    flex: .01;
+}
+.todo-item > div {
+    flex: 1;
+    padding: 2%;
+}
+.todo-button > button {
+    flex: .2;
 }

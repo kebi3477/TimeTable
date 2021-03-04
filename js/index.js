@@ -1,4 +1,6 @@
+const todos = JSON.parse(localStorage.getItem("todos"))
 const detailClass = document.querySelector(".detail-class");
+const todoList = document.querySelector(".todo-list")
 try {
     const timeTable = JSON.parse(localStorage.getItem("timeTable"));
     const timetable = document.querySelector(".timetable");
@@ -27,12 +29,16 @@ try {
                 div.addEventListener("mouseleave", function() {
                     detailClass.style.display = "none";
                 })
+                div.addEventListener("click", function() {
+                    changeTodo(cla);
+                })
             }
             timetableCol.append(div);
         })
         timetable.append(timetableCol);
     })
     refine();
+    appendTodo();
 } catch(e) {
     console.error(e);
 }
@@ -64,4 +70,27 @@ function showDetailClass(json) {
     detailClass.querySelector(".professor-name").innerText = json.name;
     detailClass.style.display = "block";
     detailClass.style.backgroundColor = json.color;
+}
+
+function changeTodo(json) {
+    const todoText = document.querySelector(".todo-text");
+    const btn = document.querySelector(".todo-input > button");
+    todoText.style.border = `2px solid ${json.color}`;
+    btn.style.backgroundColor = json.color;
+}
+
+function appendTodo(type) {
+    type = "정보시스템구축관리";
+    const todo = todos.filter(data => data[type])[0];
+    
+    for(data in todos[type]) {
+        const todoItem = document.createElement("div");
+        todoItem.classList.add("todo-item");
+        todoItem.innerHTML = `
+            <input type="checkbox">
+            <div>${data.content}</div>
+            <button>지우기</button>
+        `;
+        todoList.append(todoItem);
+    }
 }
