@@ -6,23 +6,26 @@ try {
     timeTable && timeTable.forEach(data => {
         const timetableCol = document.createElement("div");
         timetableCol.classList.add("timetable-col");
-        data.classes.forEach((cla, index) => {
+        data.forEach((cla, index) => {
             const div = document.createElement("div");
             if(index === 0) {
-                div.innerText = data.day;
+                div.innerText = cla[0];
                 div.addEventListener("mouseover", function(e) {
-                    detailClass.style.opacity = 0;
+                    detailClass.style.display = "none";
                 })
             } else if(cla.class === undefined) {
                 div.addEventListener("mouseover", function(e) {
-                    detailClass.style.opacity = 0;
+                    detailClass.style.display = "none";
                 })
             } else {
                 div.innerText = cla.class;
                 div.style.backgroundColor = cla.color;
+                div.style.cursor = 'crosshair';
                 div.addEventListener("mouseover", function(e) {
                     showDetailClass(cla)
-                    e.preventDefault();
+                })
+                div.addEventListener("mouseleave", function() {
+                    detailClass.style.display = "none";
                 })
             }
             timetableCol.append(div);
@@ -59,6 +62,6 @@ function refine() {
 function showDetailClass(json) {
     detailClass.querySelector(".class-name").innerText = json.class;
     detailClass.querySelector(".professor-name").innerText = json.name;
-    detailClass.style.opacity = 1;
+    detailClass.style.display = "block";
     detailClass.style.backgroundColor = json.color;
 }

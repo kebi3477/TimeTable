@@ -8,7 +8,13 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: seoul;
 }
+body {
+    display: flex;
+    flex-flow: row wrap;
+}
+/* 클래스 호버시 나오는 창 */
 .detail-class {
     position: absolute;
     background-color: #abc;
@@ -16,7 +22,16 @@
     right: 0;
     width: 10%;
     padding: 1%;
-    opacity: 0;
+    display: none;
+}
+/* 시간표 */
+.timetable-cover, .todo-cover {
+    width: 33%;
+}
+.timetable-cover > h2, .todo-cover > h2 {
+    text-align: center;
+    padding: 2% 0;
+    font-size: 1.5rem;
 }
 .timetable {
     display: flex;
@@ -26,7 +41,7 @@
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
-    width: 6%;
+    width: 20%;
     height: 80vh;
 }
 .timetable-col > div:first-child {
@@ -36,10 +51,11 @@
 .timetable-col > div {
     padding: 5%;
     height: 30%;
-    font-family: seoul;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: .1px solid #3333;
+    border-left: none;
 }
 .timetable-col > div:not(div:last-child) {
     border-bottom: none;

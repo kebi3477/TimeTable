@@ -11,32 +11,17 @@ if(localStorage.getItem("timeTable") === null) {
     const hsy3 = makeClassJson("UI/UX디자인","허성율","#d2c6b2");
 
     const timeTable = [
-        {
-            "day" : "월요일",
-            "classes" : [
-                "", kjm1, kjm1, "", kkm, kkm, kkm, ""
-            ]
-        }, {
-            "day" : "화요일",
-            "classes" : [
-                kyy, kyy, kyy, "", jys, jys, "", ""
-            ]
-        }, {
-            "day" : "수요일",
-            "classes" : [
-                kjm2, kjm2, kjm2, kjm2, "", "", "", ""
-            ]
-        }, {
-            "day" : "목요일",
-            "classes" : [
-                hsy1, hsy1, hsy2, hsy2, hsy2, hsy3, hsy3, hsy3
-            ]
-        }, {
-            "day" : "금요일",
-            "classes" : [
-                "", "", "", "", "", "", "", ""
-            ]
-        }
+        [
+                "월요일", "", kjm1, kjm1, "", kkm, kkm, kkm, ""
+        ], [
+                "화요일", kyy, kyy, kyy, "", jys, jys, "", ""
+        ], [
+                "수요일", kjm2, kjm2, kjm2, kjm2, "", "", "", ""
+        ], [
+                "목요일", hsy1, hsy1, hsy2, hsy2, hsy2, hsy3, hsy3, hsy3
+        ], [
+                "금요일", "", "", "", "", "", "", "", ""
+        ]
     ]
     localStorage.setItem("timeTable", JSON.stringify(timeTable));
 }
