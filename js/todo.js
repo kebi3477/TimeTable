@@ -13,12 +13,24 @@ function initTodo() {
     todoItems.forEach(el => el.remove());
     todos.forEach(data => {
         const todoItem = document.createElement("div");
+        const checked = data.check ? "checked" : "";
+
         todoItem.classList.add("todo-item");
         todoItem.innerHTML = `
-            <input type="checkbox">
-            <div>${data.todo}</div>
+            <input type="checkbox" class="todo-check" ${checked}>
+            <div class='todo-content'>${data.todo}</div>
             <button class='todo-delete'>지우기</button>
         `;
+        todoItem.querySelector(".todo-check").addEventListener("click", function() {
+            todos.forEach(todo => {
+                if(todo.num === data.num) {
+                    data.check = this.checked;
+                    localStorage.setItem("todos", JSON.stringify(todos));
+                    initTodo();
+                }
+            })
+        })
+        todoItem.querySelector(".todo-content").style.textDecoration = checked ? "line-through" : "";
         todoItem.querySelector(".todo-delete").onclick = () => {
             const filtering = todos.filter(todo => todo.num !== data.num);
             localStorage.setItem("todos", JSON.stringify(filtering));
@@ -42,4 +54,8 @@ function addTodo() {
     localStorage.setItem("todos", JSON.stringify(localTodo));
     todo.value = "";
     initTodo();
+}
+
+function checkTodo() {
+
 }
