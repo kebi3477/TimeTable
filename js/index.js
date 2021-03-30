@@ -1,6 +1,4 @@
-const todos = JSON.parse(localStorage.getItem("todos"))
 const detailClass = document.querySelector(".detail-class");
-const todoList = document.querySelector(".todo-list")
 try {
     const timeTable = JSON.parse(localStorage.getItem("timeTable"));
     const timetable = document.querySelector(".timetable");
@@ -38,7 +36,6 @@ try {
         timetable.append(timetableCol);
     })
     refine();
-    appendTodo();
 } catch(e) {
     console.error(e);
 }
@@ -77,20 +74,4 @@ function changeTodo(json) {
     const btn = document.querySelector(".todo-input > button");
     todoText.style.border = `2px solid ${json.color}`;
     btn.style.backgroundColor = json.color;
-}
-
-function appendTodo(type) {
-    type = "정보시스템구축관리";
-    const todo = todos.filter(data => data[type])[0];
-    
-    for(data in todos[type]) {
-        const todoItem = document.createElement("div");
-        todoItem.classList.add("todo-item");
-        todoItem.innerHTML = `
-            <input type="checkbox">
-            <div>${data.content}</div>
-            <button>지우기</button>
-        `;
-        todoList.append(todoItem);
-    }
 }

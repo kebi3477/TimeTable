@@ -26,6 +26,10 @@ if(localStorage.getItem("timeTable") === null) {
     localStorage.setItem("timeTable", JSON.stringify(timeTable));
 }
 
+if(localStorage.getItem("todos") === null) {
+    localStorage.setItem("todos", "[]");
+}
+
 function makeClassJson(className, name, color) {
     const json = {
         class : className,
